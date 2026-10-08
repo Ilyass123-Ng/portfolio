@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ilyass123-ng.github.io/portfolio/sitemap.xml
