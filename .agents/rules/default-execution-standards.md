@@ -16,6 +16,7 @@ Antigravity MUST apply the following best practices automatically on EVERY task,
   - Strictly enforce Server Component (RSC) vs Client Component (`'use client'`) boundaries. Never leak client hooks into server components.
   - Use Server Actions with `zod` input validation and typed responses.
   - Implement optimistic UI updates and proper streaming/Suspense boundaries where applicable.
+  - Reject legacy `pages/` patterns or synchronous `cookies()` access.
 - **UI/UX Craft & Aesthetics:**
   - Never generate generic, plain HTML/CSS with default browser styling.
   - Apply curated color palettes, fluid typography, dark-mode elegance, glassmorphism, and responsive micro-animations automatically.
@@ -26,15 +27,27 @@ Antigravity MUST apply the following best practices automatically on EVERY task,
 ## 3. Backend, Database & APIs
 - **Database Schema & Query Optimization:**
   - Enforce clean normalization (3NF), foreign key cascades, and optimal indexing strategies (composite, B-tree) for foreign keys and lookup columns.
-  - Guard against `N+1` queries in ORMs (Eloquent, Prisma, TypeORM).
+  - Guard against `N+1` queries in ORMs (Prisma, Eloquent, TypeORM, Drizzle).
 - **RESTful API Standards:**
   - Follow strict HTTP verb semantics (GET, POST, PUT, PATCH, DELETE).
   - Use accurate HTTP status codes (200, 201, 204, 400, 401, 403, 404, 422, 500).
   - Structure API payloads with consistent envelope formats, error details, and pagination.
+- **Golang Engineering (When Go is used):**
+  - Enforce standard project layout (`cmd/`, `internal/`, `pkg/`).
+  - Follow idiomatic Go error handling (`if err != nil`) with context wrapping.
+  - Leverage Goroutines and channels safely with sync primitives and timeouts.
 
 ---
 
-## 4. Security, SEO & Testing
-- **Security by Default:** Sanitize inputs against XSS and SQL injection. Never expose API keys or sensitive secrets in clientside bundles.
+## 4. Security & OWASP Hardening (Default Vigilance)
+- **Zero-Tolerance for Vulnerabilities:**
+  - Audit every endpoint and input against OWASP Top 10 automatically.
+  - Sanitize all user inputs against XSS and SQL injection.
+  - Never hardcode or commit API keys, secrets, or passwords in clientside code or repos.
+  - Enforce secure headers, CORS restrictions, and HttpOnly cookie flags for authentication.
+
+---
+
+## 5. SEO & Automated Verification
 - **SEO Automatically:** Every public web page must include descriptive titles, meta tags, OpenGraph/Twitter previews, canonical URLs, and Schema.org JSON-LD structured data.
-- **Test Verification:** Provide tests (unit, integration, or E2E) for critical logic using standard testing frameworks (Vitest, Jest, Playwright).
+- **Test Verification:** Proactively provide tests (unit, integration, or E2E) for critical logic using standard testing frameworks (Vitest, Jest, Playwright, Go test).
