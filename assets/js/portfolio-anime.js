@@ -299,12 +299,12 @@
 
     if (state.intervalId) clearInterval(state.intervalId);
 
-    // 1300ms auto-cycling
+    // 1000ms (1s) auto-cycling as requested
     state.intervalId = setInterval(() => {
       if (!state.isPaused) {
         stepCardSlide(projKey, 1);
       }
-    }, 1300);
+    }, 1000);
   }
 
   function stepCardSlide(projKey, delta) {
