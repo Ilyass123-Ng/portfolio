@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Anime.js Interactive Gallery & Micro-Interactions Styles
+   Author: Ilyas Ennajy (<IE />)
+   ========================================================================== */
+
+/* Project Gallery Trigger Button */
+.portfolio-gallery-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.portfolio-gallery-btn:hover {
+  background: #d4ff00;
+  border-color: #d4ff00;
+  color: #02080d;
+  box-shadow: 0 0 20px rgba(212, 255, 0, 0.4);
+}
+
+.portfolio-action-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Modal Overlay */
+.anime-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.anime-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 8, 13, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+}
+
+/* Modal Dialog */
+.anime-modal-dialog {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-modal-content {
+  background: #090e17;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 255, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 94vh;
+}
+
+/* Modal Header */
+.anime-modal-header {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.anime-modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.anime-modal-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: #d4ff00;
+  text-transform: uppercase;
+}
+
+.anime-modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.anime-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.anime-modal-btn-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.anime-modal-btn-gh:hover {
+  background: #ffffff;
+  color: #02080d;
+}
+
+.anime-modal-close {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.anime-modal-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Modal Stage */
+.anime-modal-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #03070c;
+  padding: 1rem;
+  min-height: 440px;
+  max-height: 62vh;
+  overflow: hidden;
+}
+
+.anime-modal-image-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.anime-modal-image-wrap img {
+  max-width: 100%;
+  max-height: calc(62vh - 3.5rem);
+  object-fit: contain;
+  border-radius: 0.75rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.anime-modal-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  text-align: center;
+  background: rgba(9, 14, 23, 0.8);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.anime-modal-caption .screen-count {
+  color: #d4ff00;
+  font-weight: 700;
+}
+
+/* Modal Nav Buttons */
+.anime-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: rgba(9, 14, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.anime-modal-nav:hover {
+  background: #d4ff00;
+  border-color: #d4ff00;
+  color: #02080d;
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.3);
+}
+
+.anime-modal-prev {
+  left: 1.25rem;
+}
+
+.anime-modal-next {
+  right: 1.25rem;
+}
+
+/* Thumbs Bar */
+.anime-modal-thumbs-bar {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.anime-modal-thumb-btn {
+  flex-shrink: 0;
+  width: 80px;
+  height: 52px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.anime-modal-thumb-btn:hover {
+  opacity: 0.85;
+}
+
+.anime-modal-thumb-btn.active {
+  opacity: 1;
+  border-color: #d4ff00;
+  box-shadow: 0 0 12px rgba(212, 255, 0, 0.35);
+}
+
+.anime-modal-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .anime-modal {
+    padding: 0.5rem;
+  }
+  .anime-modal-dialog {
+    max-height: 98vh;
+  }
+  .anime-modal-header {
+    padding: 0.85rem 1rem;
+  }
+  .anime-modal-title {
+    font-size: 1rem;
+  }
+  .anime-modal-nav {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.1rem;
+  }
+  .anime-modal-prev {
+    left: 0.5rem;
+  }
+  .anime-modal-next {
+    right: 0.5rem;
+  }
+  .anime-modal-thumb-btn {
+    width: 60px;
+    height: 40px;
+  }
+}
