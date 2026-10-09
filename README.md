@@ -1,6 +1,6 @@
 # Ilyas Ennajy — Portfolio
 
-Static single-page portfolio for Ilyas Ennajy, Full-Stack Developer & Software Engineer.
+Static single-page portfolio for Ilyas Ennajy, Full-Stack Developer.
 
 ## Structure
 
