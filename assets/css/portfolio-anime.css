@@ -532,63 +532,114 @@
 }
 
 /* ==========================================================================
-   Contact Section & Direct Email Action Styles
+   Contact Section & Direct Email Action Styles (High Contrast & Pro)
    ========================================================================== */
 .contact-email-card {
-  background: rgba(14, 23, 34, 0.75) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(14, 23, 34, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  transition: all 0.3s ease;
 }
 
 .contact-email-card:hover {
-  border-color: rgba(212, 255, 0, 0.3) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 255, 0, 0.4) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 #copy-email-btn {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #f1f5f9;
-  transition: all 0.25s ease;
-}
-
-#copy-email-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #d4ff00;
-  color: #d4ff00;
-}
-
-#portfolio-interactive-contact-form input,
-#portfolio-interactive-contact-form textarea {
-  background: rgba(14, 23, 34, 0.75) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
   transition: all 0.25s ease;
 }
 
-#portfolio-interactive-contact-form input:focus,
-#portfolio-interactive-contact-form textarea:focus {
+#copy-email-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
   border-color: #d4ff00 !important;
-  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.15) !important;
-  background: rgba(18, 30, 44, 0.95) !important;
+  color: #d4ff00 !important;
+}
+
+/* Form Container */
+.footer-three-form {
+  background: rgba(12, 20, 30, 0.88) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* High Contrast Input Fields */
+#portfolio-interactive-contact-form input,
+#portfolio-interactive-contact-form textarea,
+#portfolio-interactive-contact-form .form-control {
+  background-color: #0b131f !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 0.85rem 1.15rem !important;
+  border-radius: 0.65rem !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+
+#portfolio-interactive-contact-form input::placeholder,
+#portfolio-interactive-contact-form textarea::placeholder,
+#portfolio-interactive-contact-form .form-control::placeholder {
+  color: #94a3b8 !important; /* Visible light slate placeholder */
+  -webkit-text-fill-color: #94a3b8 !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+#portfolio-interactive-contact-form input:focus,
+#portfolio-interactive-contact-form textarea:focus,
+#portfolio-interactive-contact-form .form-control:focus {
+  background-color: #0e1927 !important;
+  border-color: #d4ff00 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.22) !important;
+  outline: none !important;
+}
+
+#portfolio-interactive-contact-form textarea.form-control {
+  min-height: 130px !important;
+  resize: vertical;
+}
+
+/* WebKit autofill styling */
+#portfolio-interactive-contact-form input:-webkit-autofill,
+#portfolio-interactive-contact-form input:-webkit-autofill:hover,
+#portfolio-interactive-contact-form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0b131f inset !important;
+  box-shadow: 0 0 0px 1000px #0b131f inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 #contact-submit-btn {
-  background: #d4ff00 !important;
+  background-color: #d4ff00 !important;
   color: #02080d !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  border-radius: 0.65rem !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #contact-submit-btn:hover {
-  background: #ffffff !important;
+  background-color: #ffffff !important;
   color: #02080d !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(212, 255, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(212, 255, 0, 0.35) !important;
 }
 
 #contact-feedback-message {
-  border-color: rgba(212, 255, 0, 0.3) !important;
+  border-color: rgba(212, 255, 0, 0.35) !important;
   background: rgba(10, 18, 26, 0.95) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
 }
+
