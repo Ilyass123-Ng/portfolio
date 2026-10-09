@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Anime.js Interactive Gallery & Micro-Interactions Styles
+   Anime.js Interactive Gallery & Live Card Slideshow Styles
    Author: Ilyas Ennajy (<IE />)
    ========================================================================== */
 
-/* Project Gallery Trigger Button */
+/* Project Gallery Trigger Button in Header */
 .portfolio-gallery-btn {
   width: 2.25rem;
   height: 2.25rem;
@@ -34,7 +34,214 @@
   gap: 0.5rem;
 }
 
-/* Modal Overlay */
+/* ==========================================================================
+   Live Card Slideshow Widget
+   ========================================================================== */
+.project-slideshow-widget {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #060b11;
+  user-select: none;
+}
+
+.project-slideshow-widget a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.project-slideshow-widget img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  transition: transform 0.4s ease;
+}
+
+.project-slideshow-widget:hover img {
+  transform: scale(1.02);
+}
+
+/* Top Progress Bar (Segmented Story Lines) */
+.slideshow-top-bar {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.slideshow-segments-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+  pointer-events: auto;
+}
+
+.slideshow-segment {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 9999px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.slideshow-segment::after {
+  content: "";
+  position: absolute;
+  inset: -6px 0; /* Easier hover / click target */
+}
+
+.slideshow-segment:hover {
+  background: rgba(255, 255, 255, 0.65);
+  height: 5px;
+}
+
+.slideshow-segment.active {
+  background: #d4ff00;
+  box-shadow: 0 0 10px rgba(212, 255, 0, 0.7);
+  height: 5px;
+}
+
+.slideshow-counter-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(2, 8, 13, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  pointer-events: auto;
+}
+
+.slideshow-counter-badge .counter-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #d4ff00;
+  box-shadow: 0 0 8px #d4ff00;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* Nav Buttons on Sides */
+.slideshow-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(2, 8, 13, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.project-slideshow-widget:hover .slideshow-nav-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideshow-nav-btn:hover {
+  background: #d4ff00;
+  border-color: #d4ff00;
+  color: #02080d;
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slideshow-nav-btn.prev-btn {
+  left: 0.75rem;
+}
+
+.slideshow-nav-btn.next-btn {
+  right: 0.75rem;
+}
+
+/* Bottom Bar (Live Caption & Hint) */
+.slideshow-bottom-bar {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(2, 8, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.project-slideshow-widget:hover .slideshow-bottom-bar {
+  background: rgba(2, 8, 13, 0.95);
+  border-color: rgba(212, 255, 0, 0.3);
+}
+
+.slideshow-caption-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.slideshow-hint {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #d4ff00;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Cinematic Fullscreen Modal Styles
+   ========================================================================== */
 .anime-modal {
   position: fixed;
   inset: 0;
@@ -48,13 +255,12 @@
 .anime-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(2, 8, 13, 0.88);
+  background: rgba(2, 8, 13, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   cursor: pointer;
 }
 
-/* Modal Dialog */
 .anime-modal-dialog {
   position: relative;
   z-index: 10;
@@ -69,14 +275,13 @@
   background: #090e17;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1.5rem;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 255, 0, 0.08);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 255, 0, 0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   max-height: 94vh;
 }
 
-/* Modal Header */
 .anime-modal-header {
   padding: 1.25rem 1.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -156,7 +361,6 @@
   border-color: rgba(239, 68, 68, 0.4);
 }
 
-/* Modal Stage */
 .anime-modal-stage {
   position: relative;
   flex: 1;
@@ -205,7 +409,6 @@
   font-weight: 700;
 }
 
-/* Modal Nav Buttons */
 .anime-modal-nav {
   position: absolute;
   top: 50%;
@@ -241,7 +444,6 @@
   right: 1.25rem;
 }
 
-/* Thumbs Bar */
 .anime-modal-thumbs-bar {
   display: flex;
   gap: 0.75rem;
@@ -282,8 +484,24 @@
   object-fit: cover;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
+  .slideshow-nav-btn {
+    opacity: 1;
+    visibility: visible;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .slideshow-bottom-bar {
+    padding: 0.3rem 0.5rem;
+  }
+  .slideshow-caption-text {
+    font-size: 0.68rem;
+  }
+  .slideshow-hint {
+    display: none;
+  }
   .anime-modal {
     padding: 0.5rem;
   }
