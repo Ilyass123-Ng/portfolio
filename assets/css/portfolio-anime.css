@@ -532,114 +532,620 @@
 }
 
 /* ==========================================================================
-   Contact Section & Direct Email Action Styles (High Contrast & Pro)
+   Unifex Creative Contact Studio (Dark Cyberpunk / Editorial Design System)
+   Author: Ilyas Ennajy (<IE />)
    ========================================================================== */
-.contact-email-card {
-  background: rgba(14, 23, 34, 0.85) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  transition: all 0.3s ease;
+
+:root {
+  --unifex-black: #02080d;
+  --unifex-card: #081018;
+  --unifex-card-hover: #0c1824;
+  --unifex-lime: #d4ff00;
+  --unifex-orange: #ff5100;
+  --unifex-border: rgba(255, 255, 255, 0.08);
+  --unifex-border-glow: rgba(212, 255, 0, 0.35);
+  --font-phudu: "Phudu", sans-serif;
+  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.contact-email-card:hover {
-  border-color: rgba(212, 255, 0, 0.4) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+/* Contact Area Canvas & Ambient Grid */
+.footer-three-area {
+  background-color: var(--unifex-black) !important;
+  position: relative;
+  overflow: hidden;
 }
 
-#copy-email-btn {
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: #ffffff !important;
+.unifex-ambient-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.unifex-orb-lime {
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 255, 0, 0.08) 0%, rgba(212, 255, 0, 0) 70%);
+  filter: blur(80px);
+  animation: unifexOrbFloat 14s infinite alternate ease-in-out;
+}
+
+.unifex-orb-orange {
+  position: absolute;
+  bottom: 0%;
+  right: -5%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 81, 0, 0.09) 0%, rgba(255, 81, 0, 0) 70%);
+  filter: blur(90px);
+  animation: unifexOrbFloat 18s infinite alternate-reverse ease-in-out;
+}
+
+.unifex-grid-matrix {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+@keyframes unifexOrbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.08); }
+  100% { transform: translate(-30px, 50px) scale(0.95); }
+}
+
+/* Status Pill */
+.unifex-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(212, 255, 0, 0.08);
+  border: 1px solid rgba(212, 255, 0, 0.28);
+  border-radius: 9999px;
+  font-family: var(--font-phudu);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--unifex-lime);
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(212, 255, 0, 0.12);
+  margin-bottom: 1.5rem;
+}
+
+.unifex-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--unifex-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--unifex-lime);
+  animation: unifexPulseDot 2s infinite ease-in-out;
+}
+
+@keyframes unifexPulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+/* Hero Typography */
+.unifex-contact-title {
+  font-family: var(--font-phudu);
+  font-size: clamp(2.3rem, 1.5rem + 3vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.unifex-highlight-lime {
+  color: var(--unifex-lime);
+  text-shadow: 0 0 25px rgba(212, 255, 0, 0.3);
+  position: relative;
+  display: inline-block;
+}
+
+.unifex-contact-desc {
+  font-family: var(--font-sans);
+  color: #94a3b8;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 2rem;
+}
+
+/* Terminal Glass Card (Left Direct Link) */
+.unifex-terminal-card {
+  background: linear-gradient(180deg, rgba(12, 22, 34, 0.82) 0%, rgba(6, 12, 19, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.unifex-terminal-card:hover {
+  border-color: rgba(212, 255, 0, 0.35);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(212, 255, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.unifex-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.unifex-mac-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.unifex-mac-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.unifex-dot-red { background: #ff5f56; }
+.unifex-dot-yellow { background: #ffbd2e; }
+.unifex-dot-green { background: #27c93f; }
+
+.unifex-terminal-tag {
+  font-family: var(--font-phudu);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.unifex-email-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.unifex-email-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(212, 255, 0, 0.1);
+  border: 1px solid rgba(212, 255, 0, 0.25);
+  color: var(--unifex-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(212, 255, 0, 0.15);
+}
+
+.unifex-email-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.unifex-email-link {
+  font-family: var(--font-phudu);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  word-break: break-all;
+}
+
+.unifex-email-link:hover {
+  color: var(--unifex-lime);
+  text-shadow: 0 0 15px rgba(212, 255, 0, 0.4);
+}
+
+.unifex-terminal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.unifex-btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
-#copy-email-btn:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: #d4ff00 !important;
-  color: #d4ff00 !important;
+.unifex-btn-copy:hover {
+  background: rgba(212, 255, 0, 0.15);
+  border-color: var(--unifex-lime);
+  color: var(--unifex-lime);
+  transform: translateY(-2px);
 }
 
-/* Form Container */
-.footer-three-form {
-  background: rgba(12, 20, 30, 0.88) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+.unifex-btn-gmail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: rgba(255, 81, 0, 0.12);
+  border: 1px solid rgba(255, 81, 0, 0.3);
+  color: #ff9166;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-/* High Contrast Input Fields */
-#portfolio-interactive-contact-form input,
-#portfolio-interactive-contact-form textarea,
-#portfolio-interactive-contact-form .form-control {
-  background-color: #0b131f !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+.unifex-btn-gmail:hover {
+  background: var(--unifex-orange);
+  border-color: var(--unifex-orange);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 81, 0, 0.4);
+}
+
+/* Metrics Micro-Cards Grid */
+.unifex-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.unifex-metric-card {
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.unifex-metric-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(212, 255, 0, 0.25);
+}
+
+.unifex-metric-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.unifex-metric-val {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  font-family: var(--font-phudu);
+}
+
+/* Social Hub */
+.unifex-social-hub {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.unifex-social-chip {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.unifex-social-chip:hover {
+  background: var(--unifex-lime);
+  border-color: var(--unifex-lime);
+  color: var(--unifex-black);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(212, 255, 0, 0.3);
+}
+
+/* ==========================================================================
+   Right Column: Inquiry Studio Glass Card & Form
+   ========================================================================== */
+.unifex-inquiry-card {
+  background: linear-gradient(180deg, rgba(11, 20, 31, 0.88) 0%, rgba(6, 12, 19, 0.94) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.25rem;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.unifex-inquiry-card:hover {
+  border-color: rgba(212, 255, 0, 0.3);
+}
+
+/* Corner plus markers for architectural aesthetic */
+.unifex-corner-cross {
+  position: absolute;
+  color: rgba(212, 255, 0, 0.3);
+  font-family: monospace;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+}
+.unifex-cross-tl { top: 12px; left: 16px; }
+.unifex-cross-tr { top: 12px; right: 16px; }
+.unifex-cross-bl { bottom: 12px; left: 16px; }
+.unifex-cross-br { bottom: 12px; right: 16px; }
+
+.unifex-inquiry-header {
+  margin-bottom: 1.5rem;
+}
+
+.unifex-inquiry-tag {
+  font-family: var(--font-phudu);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--unifex-lime);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.unifex-inquiry-title {
+  font-family: var(--font-phudu);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.unifex-inquiry-sub {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* Intent Pills (Quick-Select Tags) */
+.unifex-intents-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.unifex-intents-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.unifex-intents-grid {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.unifex-intent-pill {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.unifex-intent-pill:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.unifex-intent-pill.active {
+  background: rgba(212, 255, 0, 0.12);
+  border-color: var(--unifex-lime);
+  color: var(--unifex-lime);
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.25);
+}
+
+/* Form Inputs */
+.unifex-field-group {
+  margin-bottom: 1.15rem;
+}
+
+.unifex-field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.unifex-field-label span.req {
+  color: var(--unifex-lime);
+}
+
+.unifex-input,
+.unifex-textarea {
+  width: 100%;
+  background: #070e17 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
-  font-size: 15px !important;
+  font-family: var(--font-sans);
+  font-size: 0.95rem !important;
   font-weight: 500 !important;
   padding: 0.85rem 1.15rem !important;
-  border-radius: 0.65rem !important;
-  box-shadow: none !important;
-  transition: all 0.25s ease !important;
-}
-
-#portfolio-interactive-contact-form input::placeholder,
-#portfolio-interactive-contact-form textarea::placeholder,
-#portfolio-interactive-contact-form .form-control::placeholder {
-  color: #94a3b8 !important; /* Visible light slate placeholder */
-  -webkit-text-fill-color: #94a3b8 !important;
-  opacity: 1 !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-}
-
-#portfolio-interactive-contact-form input:focus,
-#portfolio-interactive-contact-form textarea:focus,
-#portfolio-interactive-contact-form .form-control:focus {
-  background-color: #0e1927 !important;
-  border-color: #d4ff00 !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.22) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   outline: none !important;
+  box-shadow: none !important;
 }
 
-#portfolio-interactive-contact-form textarea.form-control {
-  min-height: 130px !important;
+.unifex-input::placeholder,
+.unifex-textarea::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  font-size: 0.88rem !important;
+}
+
+.unifex-input:focus,
+.unifex-textarea:focus {
+  background: #0a1420 !important;
+  border-color: var(--unifex-lime) !important;
+  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.18), 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+.unifex-textarea {
+  min-height: 120px !important;
   resize: vertical;
 }
 
-/* WebKit autofill styling */
-#portfolio-interactive-contact-form input:-webkit-autofill,
-#portfolio-interactive-contact-form input:-webkit-autofill:hover,
-#portfolio-interactive-contact-form input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #ffffff !important;
-  -webkit-box-shadow: 0 0 0px 1000px #0b131f inset !important;
-  box-shadow: 0 0 0px 1000px #0b131f inset !important;
-  transition: background-color 5000s ease-in-out 0s;
+/* Futuristic Submit Button */
+.unifex-submit-wrap {
+  margin-top: 1.25rem;
 }
 
-#contact-submit-btn {
-  background-color: #d4ff00 !important;
+.unifex-btn-submit {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #d4ff00 0%, #b4df00 100%);
   color: #02080d !important;
-  font-weight: 700 !important;
+  font-family: var(--font-phudu);
+  font-size: 1.05rem;
+  font-weight: 800;
   letter-spacing: -0.01em;
-  border-radius: 0.65rem !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(212, 255, 0, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#contact-submit-btn:hover {
-  background-color: #ffffff !important;
+.unifex-btn-submit::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: rotate(25deg);
+  transition: transform 0.6s ease;
+}
+
+.unifex-btn-submit:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 36px rgba(212, 255, 0, 0.45);
+  background: #ffffff;
   color: #02080d !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(212, 255, 0, 0.35) !important;
 }
 
-#contact-feedback-message {
-  border-color: rgba(212, 255, 0, 0.35) !important;
-  background: rgba(10, 18, 26, 0.95) !important;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+.unifex-btn-submit:hover::after {
+  transform: translateX(350%) rotate(25deg);
 }
+
+.unifex-btn-submit i {
+  font-size: 1.35rem;
+  transition: transform 0.3s ease;
+}
+
+.unifex-btn-submit:hover i {
+  transform: translate(3px, -3px);
+}
+
+.unifex-btn-submit:active {
+  transform: scale(0.98);
+}
+
+/* Feedback Box */
+.unifex-feedback-box {
+  background: rgba(8, 16, 24, 0.95);
+  border: 1px solid rgba(212, 255, 0, 0.35);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .unifex-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .unifex-inquiry-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .unifex-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .unifex-terminal-actions {
+    flex-direction: column;
+  }
+  .unifex-btn-copy, .unifex-btn-gmail {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 

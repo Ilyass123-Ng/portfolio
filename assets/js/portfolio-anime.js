@@ -688,8 +688,31 @@
   }
 
   // =========================================================================
-  // 6. Contact Form & Direct Email Helpers
+  // 6. Contact Form & Direct Email Helpers (Unifex Creative Studio)
   // =========================================================================
+  window.selectProjectIntent = function (intentName, btnElement) {
+    const pills = document.querySelectorAll(".unifex-intent-pill");
+    pills.forEach((p) => p.classList.remove("active"));
+    if (btnElement) {
+      btnElement.classList.add("active");
+      runAnime(btnElement, {
+        scale: [0.94, 1.05, 1],
+        duration: 300,
+        ease: "outBack",
+      });
+    }
+
+    const subjectInput = document.getElementById("contact-subject-input");
+    if (subjectInput) {
+      subjectInput.value = `${intentName} — Opportunité de Projet`;
+      runAnime(subjectInput, {
+        borderColor: ["#d4ff00", "rgba(255, 255, 255, 0.14)"],
+        duration: 600,
+        ease: "outQuad",
+      });
+    }
+  };
+
   window.copyContactEmail = function () {
     const email = "ilyas.ennajy123@gmail.com";
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -713,13 +736,17 @@
     if (textEl) textEl.textContent = "Email Copié !";
     if (iconEl) iconEl.className = "ph-bold ph-check text-main-two-600";
     if (btn) {
-      btn.classList.add("border-main-two-600");
-      runAnime(btn, { scale: [1, 1.05, 1], duration: 250, ease: "outBack" });
+      btn.style.borderColor = "#d4ff00";
+      btn.style.color = "#d4ff00";
+      runAnime(btn, { scale: [1, 1.08, 1], duration: 300, ease: "outBack" });
     }
     setTimeout(() => {
-      if (textEl) textEl.textContent = "Copier l'email";
+      if (textEl) textEl.textContent = "Copier l'Email";
       if (iconEl) iconEl.className = "ph-bold ph-copy";
-      if (btn) btn.classList.remove("border-main-two-600");
+      if (btn) {
+        btn.style.borderColor = "";
+        btn.style.color = "";
+      }
     }, 2500);
   }
 
@@ -778,13 +805,13 @@
         <div class="d-flex align-items-start tw-gap-3">
           <div class="tw-text-2xl text-main-two-600 mt-1"><i class="ph-bold ph-check-circle"></i></div>
           <div class="w-100">
-            <h5 class="text-white tw-text-base fw-bold mb-1">Client de messagerie ouvert !</h5>
-            <p class="text-neutral-300 tw-text-sm mb-3">Votre logiciel de messagerie a été pré-rempli. Vous pouvez aussi utiliser ces raccourcis :</p>
+            <h5 class="text-white tw-text-base fw-bold mb-1 font-heading">Client de messagerie ouvert !</h5>
+            <p class="text-neutral-300 tw-text-sm mb-3">Votre logiciel de messagerie a été pré-rempli. Vous pouvez aussi envoyer votre message en 1 clic via ces raccourcis :</p>
             <div class="d-flex tw-gap-2 flex-wrap">
-              <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm bg-main-two-600 text-white d-inline-flex align-items-center tw-gap-1 tw-rounded-md tw-px-3 py-1 hover-bg-white hover-text-dark">
+              <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" class="unifex-btn-gmail tw-py-2 tw-px-3 tw-text-xs">
                 <i class="ph-bold ph-google-logo"></i> Ouvrir sur Gmail Web
               </a>
-              <button type="button" class="btn btn-sm btn-outline-light d-inline-flex align-items-center tw-gap-1 tw-rounded-md tw-px-3 py-1" onclick="window.copyContactEmail()">
+              <button type="button" class="unifex-btn-copy tw-py-2 tw-px-3 tw-text-xs" onclick="window.copyContactEmail()">
                 <i class="ph-bold ph-copy"></i> Copier l'adresse
               </button>
             </div>
@@ -793,15 +820,16 @@
       `;
       runAnime(feedbackBox, {
         opacity: [0, 1],
-        translateY: [10, 0],
-        duration: 350,
+        translateY: [15, 0],
+        duration: 400,
         ease: "outBack",
       });
     }
 
     if (submitBtn) {
       const originalHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = `<i class="ph-bold ph-check"></i> <span>Message Prêt & Client Ouvert !</span>`;
+      submitBtn.innerHTML = `<span>Message Prêt & Client Ouvert !</span> <i class="ph-bold ph-check text-main-two-600"></i>`;
+      runAnime(submitBtn, { scale: [1, 1.03, 1], duration: 300, ease: "outBack" });
       setTimeout(() => {
         submitBtn.innerHTML = originalHTML;
       }, 4000);
@@ -810,10 +838,35 @@
     return false;
   };
 
+  // Card Tilt Micro-interactions for Unifex Cards
+  function initUnifexTilt() {
+    const cards = document.querySelectorAll(".unifex-terminal-card, .unifex-inquiry-card");
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateX = (-y / (rect.height / 2)) * 3;
+        const rotateY = (x / (rect.width / 2)) * 3;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initUnifexTilt);
+  } else {
+    initUnifexTilt();
+  }
+
   // Expose API globally
   window.IlyasPortfolio = {
     openGallery: openModal,
     closeGallery: closeModal,
     switchCardSlide: switchCardSlide,
+    selectProjectIntent: window.selectProjectIntent,
   };
 })();
