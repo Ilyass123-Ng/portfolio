@@ -24,7 +24,7 @@
     return null;
   }
 
-  // Gallery Data for Ilyas's Real Projects (All Screenshots)
+  // Gallery Data for Ilyas's Real Projects (All Screenshots with Landing Page as #1)
   const PROJECTS_DATA = {
     "soul-smile": {
       title: "Soul Smile — Dental Clinic & Healthcare ERP",
@@ -32,20 +32,20 @@
       github: "https://github.com/Ilyass123-Ng",
       screens: [
         {
-          src: "assets/images/projects/soul-smile/shot-4.webp",
-          caption: "Hero Landing Page — Infrastructure Clinique 3D & Prise de Rendez-vous",
-        },
-        {
-          src: "assets/images/projects/soul-smile/shot-3.webp",
-          caption: "Admin Control Center — Gestion Multi-Cliniques, Praticiens & Activités",
-        },
-        {
           src: "assets/images/projects/soul-smile/shot-1.webp",
-          caption: "Interface Dentiste (Dr. Ayoub) — Agenda Clinique & Consultations",
+          caption: "Hero Landing Page — Infrastructure Clinique 3D Hologram & Prise de Rendez-vous",
         },
         {
           src: "assets/images/projects/soul-smile/shot-2.webp",
+          caption: "Interface Dentiste (Dr. Ayoub) — Agenda Clinique & Consultations",
+        },
+        {
+          src: "assets/images/projects/soul-smile/shot-3.webp",
           caption: "Interface Secrétariat — Gestion des Fiches Patients & Échéanciers",
+        },
+        {
+          src: "assets/images/projects/soul-smile/shot-4.webp",
+          caption: "Admin Control Center — Gestion Multi-Cliniques, Praticiens & Activités",
         },
         {
           src: "assets/images/projects/soul-smile/shot-5.webp",
@@ -59,52 +59,52 @@
       github: "https://github.com/Ilyass123-Ng/Booking-Hotels",
       screens: [
         {
-          src: "assets/images/projects/booking-hotels/cover.webp",
-          caption: "Catalogue des Hôtels — Tarification en MAD (Agadir, Marrakech, Essaouira)",
+          src: "assets/images/projects/booking-hotels/shot-1.webp",
+          caption: "Hero Landing Page — LuxeStay Maroc, Découvrez nos hôtels d'exception",
         },
         {
-          src: "assets/images/projects/booking-hotels/shot-1.webp",
-          caption: "Hero Banner LuxeStay — Expérience Hôtelière Premium au Maroc",
+          src: "assets/images/projects/booking-hotels/shot-2.webp",
+          caption: "Sélection Exclusive — Pourquoi choisir LuxeStay & Engagements",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-3.webp",
-          caption: "Sélection d'Établissements — Palais Berbère, Casa Perleta, Fairmont Tanger",
+          caption: "Catalogue des Hôtels — Tarification en MAD (Agadir, Marrakech, Essaouira)",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-4.webp",
-          caption: "Détails & Équipements — Tarifs par nuitée et galeries de chambres",
+          caption: "Sélection d'Établissements — Palais Berbère, Casa Perleta, Fairmont Tanger",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-5.webp",
-          caption: "Processus de Réservation — Vérification des disponibilités en temps réel",
+          caption: "Architecture & Patrimoine — Riads traditionnels et hôtels de luxe",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-6.webp",
-          caption: "Filtres Avancés — Recherche par ville, dates et nombre de voyageurs",
+          caption: "Recherche & Filtres Avancés — Par ville, dates de séjour et budget",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-7.webp",
-          caption: "Fiche Hôtel — Descriptions complètes et services inclus",
+          caption: "Fiche Détail Établissement — Présentation, services et localisation",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-8.webp",
-          caption: "Sélection des Chambres — Suites royales, Deluxe et Vue sur Mer",
+          caption: "Choix des Chambres & Suites — Vue sur mer, suites exécutives et tarifs",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-9.webp",
-          caption: "Paiement & Facturation — Calcul transparent des taxes de séjour",
+          caption: "Tunnel de Réservation — Vérification des disponibilités en temps réel",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-10.webp",
-          caption: "Espace Voyageur — Gestion et annulation de réservations",
+          caption: "Confirmation & Facturation — Récapitulatif clair en Dirhams (MAD)",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-11.webp",
-          caption: "Avis Clients — Notes certifiées et retours d'expérience",
+          caption: "Espace Voyageur — Gestion des séjours et historique des réservations",
         },
         {
           src: "assets/images/projects/booking-hotels/shot-12.webp",
-          caption: "Support & Assistance — Service conciergerie 24/7 au Maroc",
+          caption: "Avis Clients Certifiés & Conciergerie 24/7",
         },
       ],
     },
@@ -114,8 +114,8 @@
       github: "https://github.com/Ilyass123-Ng/tp-compt-bank-redux",
       screens: [
         {
-          src: "assets/images/projects/novabank/cover.webp",
-          caption: "Tableau de Bord Trésorerie — Solde en temps réel & Mutations Redux",
+          src: "assets/images/projects/novabank/shot-1.webp",
+          caption: "Tableau de Bord Trésorerie — Solde en temps réel & Garantie Bank Al-Maghrib",
         },
         {
           src: "assets/images/projects/novabank/shot-2.webp",
@@ -145,36 +145,36 @@
       github: "https://github.com/Ilyass123-Ng",
       screens: [
         {
-          src: "assets/images/projects/commerce-core/cover.webp",
-          caption: "Checkout Multi-Étapes — Choix du mode de livraison & Panier en MAD",
-        },
-        {
-          src: "assets/images/projects/commerce-core/shot-5.webp",
-          caption: "Détail de Commande — Livraison à Tanger (Maroc), Récapitulatif & Suivi",
-        },
-        {
           src: "assets/images/projects/commerce-core/shot-1.webp",
-          caption: "Panier & Validation — Calcul automatique des frais de port et taxes",
+          caption: "Tableau de Bord E-Commerce — Ventes & Revenus par Ville en MAD (Tanger, Casa, Rabat)",
         },
         {
           src: "assets/images/projects/commerce-core/shot-2.webp",
-          caption: "Tunnel d'Achat — Gestion des adresses clients et paiement à la livraison",
+          caption: "Checkout Multi-Étapes — Choix du mode de livraison Express & Panier en MAD",
         },
         {
           src: "assets/images/projects/commerce-core/shot-3.webp",
-          caption: "Méthodes d'Expédition — Express, Standard ou Retrait en Magasin",
+          caption: "Détail de Commande — Livraison à Tanger (Maroc), Récapitulatif & Suivi",
         },
         {
           src: "assets/images/projects/commerce-core/shot-4.webp",
-          caption: "Validation Finale — Enregistrement sécurisé du panier d'achat",
+          caption: "Validation de Commande — Calcul automatique des frais de port et TVA",
+        },
+        {
+          src: "assets/images/projects/commerce-core/shot-5.webp",
+          caption: "Gestion des Adresses Clients & Informations de facturation",
         },
         {
           src: "assets/images/projects/commerce-core/shot-6.webp",
-          caption: "Facturation & Reçu — Récapitulatif PDF imprimable",
+          caption: "Mode de Paiement — Paiement à la livraison (Cash on Delivery)",
         },
         {
           src: "assets/images/projects/commerce-core/shot-7.webp",
-          caption: "Interface E-Commerce — Grille des produits et gestion de stock",
+          caption: "Fiche Produit Détaillée — Galerie photos, options et commande directe",
+        },
+        {
+          src: "assets/images/projects/commerce-core/shot-8.webp",
+          caption: "Gestion des Commandes — Récapitulatif PDF imprimable",
         },
       ],
     },
