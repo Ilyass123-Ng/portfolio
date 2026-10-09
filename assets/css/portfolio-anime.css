@@ -530,3 +530,65 @@
     height: 40px;
   }
 }
+
+/* ==========================================================================
+   Contact Section & Direct Email Action Styles
+   ========================================================================== */
+.contact-email-card {
+  background: rgba(14, 23, 34, 0.75) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-email-card:hover {
+  border-color: rgba(212, 255, 0, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#copy-email-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  transition: all 0.25s ease;
+}
+
+#copy-email-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #d4ff00;
+  color: #d4ff00;
+}
+
+#portfolio-interactive-contact-form input,
+#portfolio-interactive-contact-form textarea {
+  background: rgba(14, 23, 34, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  transition: all 0.25s ease;
+}
+
+#portfolio-interactive-contact-form input:focus,
+#portfolio-interactive-contact-form textarea:focus {
+  border-color: #d4ff00 !important;
+  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.15) !important;
+  background: rgba(18, 30, 44, 0.95) !important;
+}
+
+#contact-submit-btn {
+  background: #d4ff00 !important;
+  color: #02080d !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#contact-submit-btn:hover {
+  background: #ffffff !important;
+  color: #02080d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 255, 0, 0.3);
+}
+
+#contact-feedback-message {
+  border-color: rgba(212, 255, 0, 0.3) !important;
+  background: rgba(10, 18, 26, 0.95) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}

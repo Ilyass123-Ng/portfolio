@@ -687,6 +687,129 @@
     });
   }
 
+  // =========================================================================
+  // 6. Contact Form & Direct Email Helpers
+  // =========================================================================
+  window.copyContactEmail = function () {
+    const email = "ilyas.ennajy123@gmail.com";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(email)
+        .then(() => {
+          showCopySuccess();
+        })
+        .catch(() => {
+          fallbackCopyText(email);
+        });
+    } else {
+      fallbackCopyText(email);
+    }
+  };
+
+  function showCopySuccess() {
+    const textEl = document.getElementById("copy-email-text");
+    const iconEl = document.getElementById("copy-email-icon");
+    const btn = document.getElementById("copy-email-btn");
+    if (textEl) textEl.textContent = "Email Copié !";
+    if (iconEl) iconEl.className = "ph-bold ph-check text-main-two-600";
+    if (btn) {
+      btn.classList.add("border-main-two-600");
+      runAnime(btn, { scale: [1, 1.05, 1], duration: 250, ease: "outBack" });
+    }
+    setTimeout(() => {
+      if (textEl) textEl.textContent = "Copier l'email";
+      if (iconEl) iconEl.className = "ph-bold ph-copy";
+      if (btn) btn.classList.remove("border-main-two-600");
+    }, 2500);
+  }
+
+  function fallbackCopyText(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
+      showCopySuccess();
+    } catch (e) {
+      prompt("Copiez l'email manuellement :", text);
+    }
+    document.body.removeChild(textarea);
+  }
+
+  window.handleContactSubmit = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const nameInput = document.getElementById("contact-name-input");
+    const emailInput = document.getElementById("contact-email-input");
+    const subjectInput = document.getElementById("contact-subject-input");
+    const messageInput = document.getElementById("contact-message-input");
+    const feedbackBox = document.getElementById("contact-feedback-message");
+    const submitBtn = document.getElementById("contact-submit-btn");
+
+    const name = nameInput ? nameInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
+    const subject =
+      (subjectInput && subjectInput.value.trim()) ||
+      "Opportunité de Projet / Collaboration";
+    const message = messageInput ? messageInput.value.trim() : "";
+
+    if (!name || !email || !message) {
+      alert("Veuillez renseigner votre nom, email et message.");
+      return false;
+    }
+
+    const emailSubject = `${subject} — ${name}`;
+    const emailBody = `Bonjour Ilyas,\n\nNom / Entreprise : ${name}\nEmail : ${email}\n\nMessage :\n${message}\n\n---\nEnvoyé depuis le portfolio Ilyas.dev`;
+
+    const mailtoUrl = `mailto:ilyas.ennajy123@gmail.com?subject=${encodeURIComponent(
+      emailSubject
+    )}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ilyas.ennajy123@gmail.com&su=${encodeURIComponent(
+      emailSubject
+    )}&body=${encodeURIComponent(emailBody)}`;
+
+    // Try triggering default mail client
+    window.location.href = mailtoUrl;
+
+    // Show interactive feedback badge
+    if (feedbackBox) {
+      feedbackBox.classList.remove("d-none");
+      feedbackBox.innerHTML = `
+        <div class="d-flex align-items-start tw-gap-3">
+          <div class="tw-text-2xl text-main-two-600 mt-1"><i class="ph-bold ph-check-circle"></i></div>
+          <div class="w-100">
+            <h5 class="text-white tw-text-base fw-bold mb-1">Client de messagerie ouvert !</h5>
+            <p class="text-neutral-300 tw-text-sm mb-3">Votre logiciel de messagerie a été pré-rempli. Vous pouvez aussi utiliser ces raccourcis :</p>
+            <div class="d-flex tw-gap-2 flex-wrap">
+              <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm bg-main-two-600 text-white d-inline-flex align-items-center tw-gap-1 tw-rounded-md tw-px-3 py-1 hover-bg-white hover-text-dark">
+                <i class="ph-bold ph-google-logo"></i> Ouvrir sur Gmail Web
+              </a>
+              <button type="button" class="btn btn-sm btn-outline-light d-inline-flex align-items-center tw-gap-1 tw-rounded-md tw-px-3 py-1" onclick="window.copyContactEmail()">
+                <i class="ph-bold ph-copy"></i> Copier l'adresse
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      runAnime(feedbackBox, {
+        opacity: [0, 1],
+        translateY: [10, 0],
+        duration: 350,
+        ease: "outBack",
+      });
+    }
+
+    if (submitBtn) {
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = `<i class="ph-bold ph-check"></i> <span>Message Prêt & Client Ouvert !</span>`;
+      setTimeout(() => {
+        submitBtn.innerHTML = originalHTML;
+      }, 4000);
+    }
+
+    return false;
+  };
+
   // Expose API globally
   window.IlyasPortfolio = {
     openGallery: openModal,

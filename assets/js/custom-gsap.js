@@ -555,21 +555,21 @@
   });
 
   ///////////////////////
-  // 09. Hover Reveal
+  // 09. Hover Reveal (Safely guarded)
   const hoverItem = document.querySelectorAll(".hover__reveal-item");
-  function moveImage(e, hoverItem, index) {
-    const item = hoverItem.getBoundingClientRect();
-    const x = e.clientX - item.x;
-    const y = e.clientY - item.y;
-    if (hoverItem.children[index]) {
-      hoverItem.children[index].style.transform = `translate(${x}px, ${y}px)`;
-    }
-  }
-  hoverItem.forEach((item, i) => {
-    item.addEventListener("mousemove", (e) => {
-      setInterval(moveImage(e, item, 1), 50);
+  if (hoverItem && hoverItem.length > 0) {
+    hoverItem.forEach((item) => {
+      item.addEventListener("mousemove", (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.x;
+        const y = e.clientY - rect.y;
+        const target = item.querySelector(".hover__reveal-bg");
+        if (target) {
+          target.style.transform = `translate(${x}px, ${y}px)`;
+        }
+      });
     });
-  });
+  }
 
   ///////////////////////
   // 10. Tesimonial Two child (2) Effect
