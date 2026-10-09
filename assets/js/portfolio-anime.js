@@ -688,30 +688,27 @@
   }
 
   // =========================================================================
-  // 6. Contact Form & Direct Email Helpers (Unifex Creative Studio)
+  // 6. Contact Form & Direct Email Helpers (Editorial Human Craft)
   // =========================================================================
-  window.selectProjectIntent = function (intentName, btnElement) {
-    const pills = document.querySelectorAll(".unifex-intent-pill");
+  window.selectEditorialPill = function (serviceName, btnElement) {
+    const pills = document.querySelectorAll(".editorial-pill");
     pills.forEach((p) => p.classList.remove("active"));
     if (btnElement) {
       btnElement.classList.add("active");
       runAnime(btnElement, {
-        scale: [0.94, 1.05, 1],
-        duration: 300,
+        scale: [0.94, 1.06, 1],
+        duration: 260,
         ease: "outBack",
       });
     }
 
     const subjectInput = document.getElementById("contact-subject-input");
     if (subjectInput) {
-      subjectInput.value = `${intentName} — Opportunité de Projet`;
-      runAnime(subjectInput, {
-        borderColor: ["#d4ff00", "rgba(255, 255, 255, 0.14)"],
-        duration: 600,
-        ease: "outQuad",
-      });
+      subjectInput.value = serviceName;
     }
   };
+
+  window.selectProjectIntent = window.selectEditorialPill;
 
   window.copyContactEmail = function () {
     const email = "ilyas.ennajy123@gmail.com";
@@ -863,6 +860,35 @@
   }
 
   // Expose API globally
+
+  // Interactive 3D Brand Logo Physics
+  function initBrand3DTilt() {
+    const brandLinks = document.querySelectorAll('.brand-3d-link');
+    brandLinks.forEach(link => {
+      const emblem = link.querySelector('.brand-3d-emblem-wrap');
+      if (!emblem) return;
+
+      link.addEventListener('mousemove', (e) => {
+        const rect = emblem.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotX = (-y / (rect.height / 2)) * 14;
+        const rotY = (x / (rect.width / 2)) * 14;
+        emblem.style.transform = `perspective(600px) rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) scale(1.08)`;
+      });
+
+      link.addEventListener('mouseleave', () => {
+        emblem.style.transform = '';
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrand3DTilt);
+  } else {
+    initBrand3DTilt();
+  }
+
   window.IlyasPortfolio = {
     openGallery: openModal,
     closeGallery: closeModal,
