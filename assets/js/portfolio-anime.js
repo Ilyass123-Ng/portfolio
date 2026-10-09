@@ -889,6 +889,132 @@
     initBrand3DTilt();
   }
 
+  // =========================================================================
+  // Aceternity UI Dynamic Mouse Spotlight for Contact Card & Inputs
+  // =========================================================================
+  function initAceternitySpotlight() {
+    const card = document.querySelector('.contact-studio-card');
+    if (card) {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--card-mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--card-mouse-y', `${e.clientY - rect.top}px`);
+      });
+    }
+
+    const fields = document.querySelectorAll('.contact-studio-field');
+    fields.forEach(field => {
+      field.addEventListener('mousemove', (e) => {
+        const rect = field.getBoundingClientRect();
+        field.style.setProperty('--input-mouse-x', `${e.clientX - rect.left}px`);
+        field.style.setProperty('--input-mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  // =========================================================================
+  // Interactive Canvas Particle Constellation (From 3D Portfolio Particles)
+  // =========================================================================
+  function initContactParticles() {
+    const canvas = document.getElementById('contact-particles-canvas');
+    if (!canvas || !canvas.parentElement) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+
+    window.addEventListener('resize', () => {
+      if (!canvas.parentElement) return;
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const count = 45;
+    const particles = [];
+    const mouse = { x: -1000, y: -1000 };
+
+    const section = document.getElementById('contact');
+    if (section) {
+      section.addEventListener('mousemove', (e) => {
+        const rect = section.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      section.addEventListener('mouseleave', () => {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      });
+    }
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.6 + 0.8,
+        baseAlpha: Math.random() * 0.35 + 0.15,
+        isCyan: Math.random() > 0.45,
+      });
+    }
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < count; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let alpha = p.baseAlpha;
+        let size = p.radius;
+
+        if (dist < 160) {
+          const factor = 1 - dist / 160;
+          p.x += (dx / dist) * factor * 0.5;
+          p.y += (dy / dist) * factor * 0.5;
+          alpha = Math.min(0.9, p.baseAlpha + factor * 0.55);
+          size = p.radius * (1 + factor * 0.6);
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        ctx.fillStyle = p.isCyan
+          ? `rgba(0, 210, 255, ${alpha})`
+          : `rgba(212, 255, 0, ${alpha})`;
+        if (dist < 160) {
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = p.isCyan ? '#00d2ff' : '#d4ff00';
+        } else {
+          ctx.shadowBlur = 0;
+        }
+        ctx.fill();
+      }
+
+      requestAnimationFrame(renderParticles);
+    }
+    renderParticles();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initAceternitySpotlight();
+      initContactParticles();
+    });
+  } else {
+    initAceternitySpotlight();
+    initContactParticles();
+  }
+
   window.IlyasPortfolio = {
     openGallery: openModal,
     closeGallery: closeModal,

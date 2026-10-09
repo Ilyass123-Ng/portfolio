@@ -767,9 +767,20 @@
   }
 }
 
-/* Elevated Studio Contact Glass Card */
+/* Canvas Particles in Contact Canvas */
+.contact-particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+/* Elevated Studio Contact Glass Card with Aceternity Spotlight */
 .contact-studio-card {
-  background: linear-gradient(165deg, rgba(16, 25, 42, 0.78) 0%, rgba(9, 14, 25, 0.92) 100%);
+  background: linear-gradient(165deg, rgba(16, 25, 42, 0.82) 0%, rgba(9, 14, 25, 0.94) 100%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   padding: 2.75rem 2.25rem;
@@ -780,6 +791,24 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   position: relative;
+  overflow: hidden;
+}
+
+/* Aceternity Card Dynamic Radial Spotlight */
+.contact-studio-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(450px circle at var(--card-mouse-x, 50%) var(--card-mouse-y, 50%), rgba(0, 210, 255, 0.08), transparent 75%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+.contact-studio-card:hover::before {
+  opacity: 1;
 }
 
 @media (max-width: 767px) {
@@ -803,6 +832,8 @@
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-studio-dot {
@@ -817,12 +848,33 @@
   font-size: 0.82rem;
   color: #94a3b8;
   font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
-/* Studio Input Fields */
+/* Studio Input Fields with Aceternity Dynamic Border Glow */
 .contact-studio-field {
   margin-bottom: 1.6rem;
   position: relative;
+  border-radius: 13px;
+  z-index: 1;
+}
+
+.contact-studio-field::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  background: radial-gradient(130px circle at var(--input-mouse-x, 50%) var(--input-mouse-y, 50%), rgba(0, 210, 255, 0.6), transparent 80%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.contact-studio-field:hover::before,
+.contact-studio-field:focus-within::before {
+  opacity: 1;
 }
 
 .contact-studio-label {
@@ -941,13 +993,33 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 10px 25px rgba(212, 255, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn-glow-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00e5ff 35%, #d4ff00 70%, transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scaleX(0.25);
+  pointer-events: none;
+}
+
+.editorial-btn-submit:hover .contact-btn-glow-bar {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .editorial-btn-submit:hover {
   background: #ffffff;
   color: #02080d !important;
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.25), 0 0 20px rgba(0, 229, 255, 0.3);
 }
 
 .editorial-btn-circle {
@@ -1012,8 +1084,8 @@
   width: 44px;
   height: 44px;
   object-fit: contain;
-  border-radius: 13px;
-  filter: drop-shadow(0 4px 14px rgba(255, 90, 31, 0.45));
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 14px rgba(0, 200, 255, 0.5));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
@@ -1021,7 +1093,7 @@
   position: absolute;
   inset: -6px;
   border-radius: 18px;
-  background: radial-gradient(circle, rgba(255, 90, 31, 0.45) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.45) 0%, transparent 70%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -1034,8 +1106,8 @@
 }
 
 .brand-3d-link:hover .brand-3d-emblem {
-  transform: scale(1.06) rotate(-2deg);
-  filter: drop-shadow(0 8px 24px rgba(255, 90, 31, 0.7));
+  transform: scale(1.08) rotate(-2deg);
+  filter: drop-shadow(0 8px 24px rgba(0, 220, 255, 0.75));
 }
 
 .brand-3d-link:hover .brand-3d-glow {
@@ -1068,11 +1140,11 @@
 
 .twoffcanvas__logo .brand-3d-link:hover .brand-3d-name {
   color: #ffffff !important;
-  text-shadow: 0 0 16px rgba(255, 90, 31, 0.5);
+  text-shadow: 0 0 16px rgba(0, 200, 255, 0.5);
 }
 
 .brand-3d-name .brand-accent {
-  color: #FF5A1F;
+  color: #00b4d8;
 }
 
 .brand-3d-sub {
@@ -1096,8 +1168,8 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #FF5A1F;
-  box-shadow: 0 0 6px #FF5A1F;
+  background: #00b4d8;
+  box-shadow: 0 0 6px #00b4d8;
   display: inline-block;
   animation: brandDotPulse 2s infinite ease-in-out;
 }
