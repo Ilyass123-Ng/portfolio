@@ -169,7 +169,7 @@
             <div class="twoffcanvas__logo">
               <a href="#banner" class="brand-3d-link">
                 <div class="brand-3d-emblem-wrap">
-                  <img src="assets/images/logo-3d-cyberpunk.png" alt="IJ 3D Emblem" class="brand-3d-emblem" />
+                  <img src="assets/images/logo-ie.svg" alt="IE Monogram Logo" class="brand-3d-emblem" />
                   <div class="brand-3d-glow"></div>
                 </div>
                 <div class="brand-3d-text">
@@ -352,7 +352,7 @@
           <div class="header-three-logo tw-rounded-md">
             <a href="#banner" class="brand-3d-link">
               <div class="brand-3d-emblem-wrap">
-                <img src="assets/images/logo-3d-cyberpunk.png" alt="IJ 3D Emblem" class="brand-3d-emblem" />
+                <img src="assets/images/logo-ie.svg" alt="IE Monogram Logo" class="brand-3d-emblem" />
                 <div class="brand-3d-glow"></div>
               </div>
               <div class="brand-3d-text">
@@ -1910,102 +1910,111 @@
                   data-aos-duration="1000"
                   data-aos-delay="150"
                 >
-                  <form id="portfolio-interactive-contact-form" onsubmit="handleContactSubmit(event)">
-                    <!-- Field 01: Name -->
-                    <div class="editorial-line-field">
-                      <div class="editorial-field-header">
-                        <span class="editorial-field-number">01</span>
-                        <label for="contact-name-input" class="editorial-field-title">
-                          Quel est votre nom ou votre entreprise ? <span class="req">*</span>
-                        </label>
+                  <div class="contact-studio-card">
+                    <div class="contact-studio-card-top d-flex align-items-center justify-content-between mb-4">
+                      <div class="contact-studio-badge">
+                        <span class="contact-studio-dot"></span>
+                        <span>Direct Communication</span>
                       </div>
-                      <input
-                        type="text"
-                        id="contact-name-input"
-                        name="name"
-                        required
-                        class="editorial-input"
-                      />
-                    </div>
-
-                    <!-- Field 02: Email -->
-                    <div class="editorial-line-field">
-                      <div class="editorial-field-header">
-                        <span class="editorial-field-number">02</span>
-                        <label for="contact-email-input" class="editorial-field-title">
-                          Votre adresse email ? <span class="req">*</span>
-                        </label>
-                      </div>
-                      <input
-                        type="email"
-                        id="contact-email-input"
-                        name="email"
-                        required
-                        class="editorial-input"
-                      />
-                    </div>
-
-                    <!-- Field 03: Service / Scope (Clean subtle pills) -->
-                    <div class="editorial-line-field">
-                      <div class="editorial-field-header">
-                        <span class="editorial-field-number">03</span>
-                        <span class="editorial-field-title">
-                          Quel type de projet souhaitez-vous réaliser ?
-                        </span>
-                      </div>
-                      <input type="hidden" id="contact-subject-input" name="subject" value="Application Web (React / Next.js)" />
-                      <div class="editorial-pills-row">
-                        <button type="button" class="editorial-pill active" onclick="selectEditorialPill('Application Web (React / Next.js)', this)">
-                          Application Web
-                        </button>
-                        <button type="button" class="editorial-pill" onclick="selectEditorialPill('Architecture Backend & APIs', this)">
-                          Backend & APIs
-                        </button>
-                        <button type="button" class="editorial-pill" onclick="selectEditorialPill('Plateforme SaaS & ERP', this)">
-                          SaaS & ERP
-                        </button>
-                        <button type="button" class="editorial-pill" onclick="selectEditorialPill('Opportunité Recrutement CDI', this)">
-                          Recrutement CDI
-                        </button>
-                      </div>
-                    </div>
-
-                    <!-- Field 04: Message -->
-                    <div class="editorial-line-field">
-                      <div class="editorial-field-header">
-                        <span class="editorial-field-number">04</span>
-                        <label for="contact-message-input" class="editorial-field-title">
-                          Parlez-moi de votre projet <span class="req">*</span>
-                        </label>
-                      </div>
-                      <textarea
-                        id="contact-message-input"
-                        name="message"
-                        required
-                        rows="3"
-                        class="editorial-textarea"
-                      ></textarea>
-                    </div>
-
-                    <!-- Submit & Note -->
-                    <div class="editorial-submit-row">
-                      <button
-                        type="submit"
-                        id="contact-submit-btn"
-                        class="editorial-btn-submit"
-                      >
-                        <span>Envoyer le message</span>
-                        <span class="editorial-btn-circle">
-                          <i class="ph-bold ph-arrow-up-right"></i>
-                        </span>
-                      </button>
-                      <span class="editorial-form-note">
-                        Réponse garantie sous 24h.
+                      <span class="contact-studio-status">
+                        <i class="ph-bold ph-lightning text-main-two-600"></i> Réponse rapide garantie
                       </span>
                     </div>
 
-                    <div id="contact-feedback-message" class="d-none editorial-feedback"></div>
-                  </form>
+                    <form id="portfolio-interactive-contact-form" onsubmit="handleContactSubmit(event)">
+                      <!-- Field 01: Name (No company name!) -->
+                      <div class="contact-studio-field">
+                        <label for="contact-name-input" class="contact-studio-label">
+                          <span class="contact-field-idx">01</span>
+                          <span class="contact-field-text">Votre nom</span>
+                          <span class="req">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="contact-name-input"
+                          name="name"
+                          required
+                          class="contact-studio-input"
+                          autocomplete="name"
+                        />
+                      </div>
+
+                      <!-- Field 02: Email -->
+                      <div class="contact-studio-field">
+                        <label for="contact-email-input" class="contact-studio-label">
+                          <span class="contact-field-idx">02</span>
+                          <span class="contact-field-text">Votre adresse email</span>
+                          <span class="req">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="contact-email-input"
+                          name="email"
+                          required
+                          class="contact-studio-input"
+                          autocomplete="email"
+                        />
+                      </div>
+
+                      <!-- Field 03: Service / Scope (Pills) -->
+                      <div class="contact-studio-field">
+                        <label class="contact-studio-label">
+                          <span class="contact-field-idx">03</span>
+                          <span class="contact-field-text">Type de projet</span>
+                        </label>
+                        <input type="hidden" id="contact-subject-input" name="subject" value="Application Web (React / Next.js)" />
+                        <div class="editorial-pills-row">
+                          <button type="button" class="editorial-pill active" onclick="selectEditorialPill('Application Web (React / Next.js)', this)">
+                            Application Web
+                          </button>
+                          <button type="button" class="editorial-pill" onclick="selectEditorialPill('Architecture Backend & APIs', this)">
+                            Backend & APIs
+                          </button>
+                          <button type="button" class="editorial-pill" onclick="selectEditorialPill('Plateforme SaaS & ERP', this)">
+                            SaaS & ERP
+                          </button>
+                          <button type="button" class="editorial-pill" onclick="selectEditorialPill('Opportunité Recrutement CDI', this)">
+                            Recrutement CDI
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Field 04: Message -->
+                      <div class="contact-studio-field">
+                        <label for="contact-message-input" class="contact-studio-label">
+                          <span class="contact-field-idx">04</span>
+                          <span class="contact-field-text">Parlez-moi de votre projet</span>
+                          <span class="req">*</span>
+                        </label>
+                        <textarea
+                          id="contact-message-input"
+                          name="message"
+                          required
+                          rows="4"
+                          class="contact-studio-input contact-studio-textarea"
+                        ></textarea>
+                      </div>
+
+                      <!-- Submit Row -->
+                      <div class="editorial-submit-row">
+                        <button
+                          type="submit"
+                          id="contact-submit-btn"
+                          class="editorial-btn-submit"
+                        >
+                          <span>Envoyer le message</span>
+                          <span class="editorial-btn-circle">
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                          </span>
+                        </button>
+                        <span class="editorial-form-note">
+                          Réponse garantie sous 24h.
+                        </span>
+                      </div>
+
+                      <div id="contact-feedback-message" class="d-none editorial-feedback"></div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

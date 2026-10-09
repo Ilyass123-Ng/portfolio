@@ -544,9 +544,13 @@
   --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Contact Canvas */
+/* Contact Canvas - Deep Atmospheric Studio */
 .footer-three-area {
-  background-color: var(--editorial-black) !important;
+  background: 
+    radial-gradient(circle at 85% 15%, rgba(212, 255, 0, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 10% 85%, rgba(255, 90, 31, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 80%),
+    #070b13 !important;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -556,13 +560,13 @@
 /* Organic Ambient Light */
 .editorial-ambient-glow {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 20%;
-  width: 550px;
-  height: 550px;
+  width: 650px;
+  height: 650px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 255, 0, 0.05) 0%, transparent 70%);
-  filter: blur(120px);
+  background: radial-gradient(circle, rgba(212, 255, 0, 0.06) 0%, rgba(255, 90, 31, 0.03) 40%, transparent 70%);
+  filter: blur(140px);
   pointer-events: none;
 }
 
@@ -744,7 +748,7 @@
    Editorial Numbered Line Form (Snellenberg Style)
    ========================================================================== */
 .editorial-form-wrap {
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 
 @media (max-width: 991px) {
@@ -763,69 +767,120 @@
   }
 }
 
-.editorial-line-field {
-  margin-bottom: 2rem;
+/* Elevated Studio Contact Glass Card */
+.contact-studio-card {
+  background: linear-gradient(165deg, rgba(16, 25, 42, 0.78) 0%, rgba(9, 14, 25, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.75rem 2.25rem;
+  box-shadow: 
+    0 30px 80px -20px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   position: relative;
 }
 
-.editorial-field-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+@media (max-width: 767px) {
+  .contact-studio-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
 }
 
-.editorial-field-number {
+.contact-studio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+
+.contact-studio-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--editorial-lime);
+  box-shadow: 0 0 8px var(--editorial-lime);
+}
+
+.contact-studio-status {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Studio Input Fields */
+.contact-studio-field {
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.contact-studio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.contact-field-idx {
   font-family: var(--font-phudu);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #64748b;
 }
 
-.editorial-field-title {
+.contact-field-text {
   font-size: 0.95rem;
   font-weight: 600;
   color: #f1f5f9;
 }
 
-.editorial-field-title span.req {
+.contact-studio-label span.req {
   color: var(--editorial-lime);
+  font-weight: 700;
 }
 
-/* Clean Line Inputs */
-.editorial-input,
-.editorial-textarea {
+/* Crisp & Visible Input Controls (No more faint invisible underlines!) */
+.contact-studio-input {
   width: 100%;
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid var(--editorial-border) !important;
-  border-radius: 0 !important;
-  padding: 0.75rem 0 !important;
+  background: rgba(4, 8, 15, 0.82) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 15px 20px !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   font-family: var(--font-sans);
-  font-size: 1.05rem !important;
+  font-size: 1rem !important;
   font-weight: 400 !important;
   outline: none !important;
-  box-shadow: none !important;
-  transition: border-color 0.3s ease !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(255, 255, 255, 0.04) !important;
 }
 
-.editorial-input::placeholder,
-.editorial-textarea::placeholder {
-  color: #475569 !important;
-  -webkit-text-fill-color: #475569 !important;
-  font-size: 0.95rem !important;
+.contact-studio-input:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
-.editorial-input:focus,
-.editorial-textarea:focus {
-  border-bottom-color: var(--editorial-lime) !important;
+.contact-studio-input:focus {
+  border-color: var(--editorial-lime) !important;
+  background: rgba(8, 14, 25, 0.96) !important;
+  box-shadow: 0 0 0 3px rgba(212, 255, 0, 0.18), inset 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-.editorial-textarea {
-  min-height: 80px !important;
+.contact-studio-textarea {
+  min-height: 110px !important;
   resize: vertical;
+  line-height: 1.6;
 }
 
 /* Service Pills */
@@ -833,14 +888,14 @@
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .editorial-pill {
   padding: 8px 18px;
   border-radius: 9999px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #cbd5e1;
   font-size: 0.85rem;
   font-weight: 500;
@@ -851,6 +906,7 @@
 .editorial-pill:hover {
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .editorial-pill.active {
@@ -858,6 +914,7 @@
   border-color: var(--editorial-lime);
   color: #02080d;
   font-weight: 700;
+  box-shadow: 0 4px 15px rgba(212, 255, 0, 0.25);
 }
 
 /* Submit Button */
@@ -943,18 +1000,10 @@
 
 .brand-3d-emblem-wrap {
   position: relative;
-  width: 52px;
-  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 90, 31, 0.18), rgba(10, 16, 24, 0.95) 75%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 10px 25px -5px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(255, 90, 31, 0.25),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
 }
@@ -963,35 +1012,30 @@
   width: 44px;
   height: 44px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(255, 90, 31, 0.45));
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-  transform: translateZ(10px);
+  border-radius: 13px;
+  filter: drop-shadow(0 4px 14px rgba(255, 90, 31, 0.45));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .brand-3d-glow {
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 18px;
-  background: radial-gradient(circle, rgba(255, 90, 31, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 90, 31, 0.45) 0%, transparent 70%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
   z-index: -1;
-  filter: blur(8px);
+  filter: blur(10px);
 }
 
 .brand-3d-link:hover .brand-3d-emblem-wrap {
-  transform: translateY(-2px) rotateX(8deg) rotateY(-8deg);
-  border-color: rgba(255, 90, 31, 0.5);
-  box-shadow: 
-    0 16px 35px -5px rgba(0, 0, 0, 0.7),
-    0 0 35px rgba(255, 90, 31, 0.5),
-    inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
 }
 
 .brand-3d-link:hover .brand-3d-emblem {
-  transform: translateZ(20px) scale(1.08) rotate(-2deg);
-  filter: drop-shadow(0 6px 20px rgba(255, 90, 31, 0.75));
+  transform: scale(1.06) rotate(-2deg);
+  filter: drop-shadow(0 8px 24px rgba(255, 90, 31, 0.7));
 }
 
 .brand-3d-link:hover .brand-3d-glow {
@@ -1009,19 +1053,26 @@
   font-size: 1.22rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: #0b0f17;
   transition: color 0.3s ease;
   text-transform: uppercase;
 }
 
+.twoffcanvas__logo .brand-3d-name {
+  color: #ffffff !important;
+}
+
 .brand-3d-link:hover .brand-3d-name {
-  color: #ffffff;
+  color: #0b0f17;
+}
+
+.twoffcanvas__logo .brand-3d-link:hover .brand-3d-name {
+  color: #ffffff !important;
   text-shadow: 0 0 16px rgba(255, 90, 31, 0.5);
 }
 
 .brand-3d-name .brand-accent {
   color: #FF5A1F;
-  text-shadow: 0 0 12px rgba(255, 90, 31, 0.6);
 }
 
 .brand-3d-sub {
@@ -1029,12 +1080,16 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.55);
+  color: #475569;
   text-transform: uppercase;
   margin-top: 2px;
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.twoffcanvas__logo .brand-3d-sub {
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .brand-3d-dot {
