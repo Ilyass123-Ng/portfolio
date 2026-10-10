@@ -1,4 +1,45 @@
 /* ==========================================================================
+   USER-CONFIGURABLE THEME PALETTE (Luxury Earth & Warm Gold System)
+   Active Palette: #FCF0DA, #AEAC78, #F2C46A, #4C4541
+   Easily change these 4 colors here to update the entire portfolio theme!
+   ========================================================================== */
+:root {
+  --color-cream: #FCF0DA;  /* Cream Vanilla */
+  --color-sage: #AEAC78;   /* Sage Olive */
+  --color-gold: #F2C46A;   /* Warm Radiant Gold */
+  --color-earth: #4C4541;  /* Deep Charcoal Earth */
+
+  /* Aliases for theme tokens */
+  --color-black: #181514;  /* Deep rich foundation derived from #4C4541 */
+  --color-dark-red: #4C4541;
+  --color-crimson: #AEAC78;
+  --color-neon-red: #F2C46A;
+
+  /* Theme Tokens */
+  --bg-primary: #181514;
+  --bg-card: rgba(36, 32, 30, 0.88);
+  --bg-card-hover: rgba(52, 47, 44, 0.96);
+  --border-subtle: rgba(174, 172, 120, 0.28);
+  --border-hover: #F2C46A;
+  
+  --accent-main: #F2C46A;
+  --accent-secondary: #AEAC78;
+  --accent-dark: #4C4541;
+  --accent-light: #FCF0DA;
+
+  --text-main: #FCF0DA;
+  --text-muted: #e2dbcb;
+  --text-dim: #b8b1a2;
+
+  --glow-accent: 0 0 25px rgba(242, 196, 106, 0.45);
+  --glow-crimson: 0 0 25px rgba(174, 172, 120, 0.35);
+
+  --editorial-black: #181514;
+  --editorial-lime: #F2C46A;
+  --editorial-border: rgba(174, 172, 120, 0.25);
+}
+
+/* ==========================================================================
    Anime.js Interactive Gallery & Live Card Slideshow Styles
    Author: Ilyas Ennajy (<IE />)
    ========================================================================== */
@@ -22,10 +63,10 @@
 }
 
 .portfolio-gallery-btn:hover {
-  background: #d4ff00;
-  border-color: #d4ff00;
-  color: #02080d;
-  box-shadow: 0 0 20px rgba(212, 255, 0, 0.4);
+  background: var(--color-neon-red);
+  border-color: var(--color-neon-red);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.45);
 }
 
 .portfolio-action-group {
@@ -110,8 +151,8 @@
 }
 
 .slideshow-segment.active {
-  background: #d4ff00;
-  box-shadow: 0 0 10px rgba(212, 255, 0, 0.7);
+  background: var(--color-neon-red);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
   height: 5px;
 }
 
@@ -121,7 +162,7 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.25rem 0.65rem;
-  background: rgba(2, 8, 13, 0.85);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -137,8 +178,8 @@
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: #d4ff00;
-  box-shadow: 0 0 8px #d4ff00;
+  background: var(--color-neon-red);
+  box-shadow: 0 0 8px var(--color-neon-red);
   animation: pulse-dot 1.5s infinite;
 }
 
@@ -156,7 +197,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
-  background: rgba(2, 8, 13, 0.75);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -177,10 +218,10 @@
 }
 
 .slideshow-nav-btn:hover {
-  background: #d4ff00;
-  border-color: #d4ff00;
-  color: #02080d;
-  box-shadow: 0 0 15px rgba(212, 255, 0, 0.4);
+  background: var(--color-neon-red);
+  border-color: var(--color-neon-red);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -231,7 +272,7 @@
 .slideshow-hint {
   font-size: 0.7rem;
   font-weight: 600;
-  color: #d4ff00;
+  color: var(--color-neon-red);
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -255,7 +296,7 @@
 .anime-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(2, 8, 13, 0.92);
+  background: rgba(0, 0, 0, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   cursor: pointer;
@@ -272,10 +313,10 @@
 }
 
 .anime-modal-content {
-  background: #090e17;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 1.5rem;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 255, 0, 0.08);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), var(--glow-accent);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -302,7 +343,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   font-weight: 700;
-  color: #d4ff00;
+  color: var(--color-neon-red);
   text-transform: uppercase;
 }
 
@@ -405,7 +446,7 @@
 }
 
 .anime-modal-caption .screen-count {
-  color: #d4ff00;
+  color: var(--color-neon-red);
   font-weight: 700;
 }
 
@@ -417,7 +458,7 @@
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background: rgba(9, 14, 23, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
   font-size: 1.5rem;
@@ -430,10 +471,10 @@
 }
 
 .anime-modal-nav:hover {
-  background: #d4ff00;
-  border-color: #d4ff00;
-  color: #02080d;
-  box-shadow: 0 0 15px rgba(212, 255, 0, 0.3);
+  background: var(--color-neon-red);
+  border-color: var(--color-neon-red);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
 .anime-modal-prev {
@@ -474,8 +515,8 @@
 
 .anime-modal-thumb-btn.active {
   opacity: 1;
-  border-color: #d4ff00;
-  box-shadow: 0 0 12px rgba(212, 255, 0, 0.35);
+  border-color: var(--color-neon-red);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.45);
 }
 
 .anime-modal-thumb-btn img {
@@ -537,9 +578,9 @@
    ========================================================================== */
 
 :root {
-  --editorial-black: #06090e;
-  --editorial-lime: #d4ff00;
-  --editorial-border: rgba(255, 255, 255, 0.14);
+  --editorial-black: var(--color-black);
+  --editorial-lime: var(--color-neon-red);
+  --editorial-border: var(--border-subtle);
   --font-phudu: "Phudu", sans-serif;
   --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -547,10 +588,10 @@
 /* Contact Canvas - Deep Atmospheric Studio */
 .footer-three-area {
   background: 
-    radial-gradient(circle at 85% 15%, rgba(212, 255, 0, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 10% 85%, rgba(255, 90, 31, 0.07) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 80%),
-    #070b13 !important;
+    radial-gradient(circle at 85% 15%, rgba(188, 2, 2, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 10% 85%, rgba(131, 0, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(20, 2, 2, 0.8) 0%, transparent 80%),
+    var(--color-black) !important;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -681,7 +722,7 @@
 .human-copy-pill:hover {
   background: var(--editorial-lime);
   border-color: var(--editorial-lime);
-  color: #02080d;
+  color: #ffffff;
 }
 
 /* Human Details Row */
@@ -962,11 +1003,11 @@
 }
 
 .editorial-pill.active {
-  background: var(--editorial-lime);
-  border-color: var(--editorial-lime);
-  color: #02080d;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #181514;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(212, 255, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(242, 196, 106, 0.35);
 }
 
 /* Submit Button */
@@ -984,15 +1025,15 @@
   gap: 14px;
   padding: 16px 34px;
   border-radius: 9999px;
-  background: var(--editorial-lime);
-  color: #02080d !important;
+  background: var(--color-gold);
+  color: #181514 !important;
   font-family: var(--font-phudu);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   border: none;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 25px rgba(212, 255, 0, 0.25);
+  box-shadow: 0 10px 25px rgba(242, 196, 106, 0.35);
   position: relative;
   overflow: hidden;
 }
@@ -1003,7 +1044,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #00e5ff 35%, #d4ff00 70%, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-sage) 35%, var(--color-gold) 70%, transparent);
   opacity: 0;
   transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scaleX(0.25);
@@ -1016,18 +1057,18 @@
 }
 
 .editorial-btn-submit:hover {
-  background: #ffffff;
-  color: #02080d !important;
+  background: var(--color-cream);
+  color: #181514 !important;
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.25), 0 0 20px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(252, 240, 218, 0.35), 0 0 25px rgba(242, 196, 106, 0.4);
 }
 
 .editorial-btn-circle {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #02080d;
-  color: var(--editorial-lime);
+  background: rgba(24, 21, 20, 0.25);
+  color: #181514;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1178,3 +1219,892 @@
   0%, 100% { opacity: 0.5; transform: scale(0.9); }
   50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #FF5A1F; }
 }
+
+/* ==========================================================================
+   Hero Banner Portrait Enhancement
+   ========================================================================== */
+.banner-three-man {
+  position: absolute;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  inset-block-end: 23% !important;
+  bottom: 23% !important;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.banner-three-man img {
+  width: auto;
+  max-width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.22));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+@media (max-width: 1399px) {
+  .banner-three-man {
+    max-width: 380px;
+    inset-block-end: 18% !important;
+    bottom: 18% !important;
+  }
+  .banner-three-man img {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .banner-three-man {
+    max-width: 340px;
+    inset-block-end: 22% !important;
+    bottom: 22% !important;
+  }
+  .banner-three-man img {
+    max-height: 440px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-three-man {
+    max-width: 260px;
+    inset-block-end: 26% !important;
+    bottom: 26% !important;
+  }
+  .banner-three-man img {
+    max-height: 350px;
+  }
+}
+
+.service-three-area {
+  background: var(--color-black) !important;
+}
+
+/* Service Pill Visuals - Authentic Developer Cards Inspired by 3D Portfolio */
+.service-three-thumb {
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #0d0202;
+  max-width: 552px;
+  width: 100%;
+}
+
+.service-three-thumb a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.service-three-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.service-three-single:hover .service-three-thumb {
+  border-color: var(--color-neon-red);
+  box-shadow: 0 20px 48px -12px rgba(255, 0, 0, 0.3), var(--glow-accent);
+  transform: translateY(-4px);
+}
+
+.service-three-single:hover .service-three-thumb img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   About Me Section - Luxury Dark Theme (Unifex Design System)
+   ========================================================================== */
+.about-three-area {
+  background: var(--color-black) !important;
+  color: #f1f5f9 !important;
+  position: relative;
+  overflow: hidden;
+  padding-block: 100px;
+}
+
+.about-three-area::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(188, 2, 2, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-three-area::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(131, 0, 0, 0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-three-area .text-heading {
+  color: #ffffff !important;
+}
+
+.about-three-area .about-three-title {
+  color: #ffffff !important;
+  font-family: var(--font-heading, "Phudu", sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+/* Portrait Card */
+.about-portrait-card {
+  border-radius: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-portrait-card:hover {
+  border-color: var(--color-neon-red);
+  box-shadow: 0 30px 60px -12px rgba(188, 2, 2, 0.35), var(--glow-accent);
+  transform: translateY(-4px);
+}
+
+.portrait-img-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  aspect-ratio: 1065 / 1477;
+  width: 100%;
+  max-height: 820px;
+  background: #000000;
+}
+
+@media (max-width: 991px) {
+  .portrait-img-box {
+    aspect-ratio: auto;
+    height: 600px;
+  }
+}
+
+.portrait-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-portrait-card:hover .portrait-img-box img {
+  transform: scale(1.02);
+}
+
+.portrait-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.portrait-status-pill {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-neon-red);
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 0, 0, 0.25);
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-neon-red);
+  box-shadow: 0 0 10px var(--color-neon-red);
+  animation: pulse-dot 1.5s infinite;
+}
+
+.portrait-info-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  width: auto;
+  padding: 16px 20px;
+  background: rgba(10, 2, 2, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.about-portrait-card:hover .portrait-info-overlay {
+  border-color: rgba(255, 0, 0, 0.45);
+}
+
+/* Bento Highlight Cards */
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 767px) {
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 20px 22px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  border-color: var(--color-neon-red);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(188, 2, 2, 0.25);
+}
+
+.bento-card.bento-full {
+  grid-column: 1 / -1;
+}
+
+.bento-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(188, 2, 2, 0.18);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neon-red);
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.bento-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-family: var(--font-heading, "Phudu", sans-serif);
+}
+
+.bento-desc {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Counters Row */
+.about-counters-row {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(188, 2, 2, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 64px;
+}
+
+.about-counter-num {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-neon-red);
+  font-family: var(--font-heading, "Phudu", sans-serif);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-shadow: var(--glow-accent);
+}
+
+.about-counter-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   UNIFIED LUXURY DARK MASTER DESIGN SYSTEM (Red & Black Cyber-Editorial)
+   Aesthetic: Pitch Black (#000000), Dark Crimson (#830000), 
+              Vibrant Crimson (#BC0202), Electric Neon Red (#FF0000)
+   Fully configurable via :root CSS custom variables!
+   ========================================================================== */
+
+/* 1. Global Page Foundation */
+html,
+body {
+  background-color: var(--color-black) !important;
+  color: #ffffff !important;
+  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  overflow-x: hidden;
+}
+
+#smooth-content,
+#smooth-wrapper {
+  background-color: var(--color-black) !important;
+}
+
+::selection {
+  background-color: var(--color-neon-red);
+  color: var(--color-black);
+}
+
+/* 2. Floating Cyber-Luxury Glass Header */
+header.header-three {
+  background: transparent !important;
+  padding-block: 20px 10px !important;
+  transition: all 0.3s ease;
+}
+
+.header-three-logo {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 9999px !important;
+  padding: 8px 20px 8px 12px !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7) !important;
+}
+
+.header-three-logo .brand-3d-name {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+}
+
+.header-three-logo .brand-accent {
+  color: var(--color-neon-red) !important;
+}
+
+.header-three-social ul li a {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 9999px !important;
+  color: var(--text-dim) !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.header-three-social ul li a:hover {
+  background: var(--color-neon-red) !important;
+  border-color: var(--color-neon-red) !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: var(--glow-accent) !important;
+}
+
+.header-three .header-menu .main-menu.header-three-nav {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 9999px !important;
+  padding: 6px 14px !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7) !important;
+}
+
+.header-three .header-menu .main-menu > nav > ul > li > a {
+  color: var(--text-dim) !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  transition: all 0.25s ease !important;
+}
+
+.header-three .header-menu .main-menu > nav > ul > li > a:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.header-three .header-menu .main-menu > nav > ul > li > a.color-active {
+  color: #ffffff !important;
+  background: var(--color-crimson) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--glow-crimson) !important;
+}
+
+.header-three-menu button {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.header-three-menu button span img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.header-three-menu button:hover {
+  background: var(--color-neon-red) !important;
+  border-color: var(--color-neon-red) !important;
+}
+
+.header-three-menu button:hover span img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.header-three-button a {
+  background: var(--color-gold) !important;
+  color: #181514 !important;
+  border: 1px solid var(--color-gold) !important;
+  border-radius: 9999px !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: var(--glow-accent) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.header-three-button a:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 0 35px rgba(242, 196, 106, 0.7) !important;
+  background: var(--color-cream) !important;
+  color: #181514 !important;
+}
+
+/* Audio FX Toggle Button in Header */
+.ui-sound-toggle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+}
+
+.ui-sound-toggle-btn:hover,
+.ui-sound-toggle-btn.sound-active {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 18px rgba(242, 196, 106, 0.4);
+}
+
+/* 3. Cinematic Hero Banner Section */
+.banner-three-area {
+  background: radial-gradient(circle at 50% 28%, rgba(242, 196, 106, 0.12) 0%, rgba(0, 0, 0, 0) 60%),
+              radial-gradient(circle at 85% 75%, rgba(174, 172, 120, 0.14) 0%, rgba(0, 0, 0, 0) 50%),
+              var(--color-black) !important;
+  padding-block: 160px 90px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Interactive Canvas Particles in Hero */
+.hero-particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Giant Outline Watermark */
+.banner-three-title,
+.banner-three-title.text-black {
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.11) !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.04em !important;
+  opacity: 0.85;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+}
+
+/* Portrait Studio Glow & Aura */
+.banner-three-man {
+  position: absolute;
+  z-index: 1;
+}
+
+.banner-three-man::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(242, 196, 106, 0.28) 0%, rgba(174, 172, 120, 0.18) 45%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(55px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.banner-three-man img {
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%) !important;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85)) contrast(1.03);
+}
+
+/* Hero Left HUD Profile Card */
+.banner-three-left {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+  padding: 30px !important;
+}
+
+.banner-three-left span.bg-main-two-600 {
+  background: rgba(174, 172, 120, 0.18) !important;
+  border: 1px solid var(--color-gold) !important;
+  color: var(--color-gold) !important;
+  border-radius: 9999px !important;
+}
+
+.banner-three-left span.bg-main-two-600 .rounded-circle {
+  background: var(--color-gold) !important;
+  box-shadow: 0 0 10px var(--color-gold);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.banner-three-left-title {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+.banner-three-left-title strong {
+  color: var(--color-gold) !important;
+  font-weight: 800;
+}
+
+.banner-three-list ul li {
+  color: #cbd5e1 !important;
+  font-size: 0.95rem !important;
+  gap: 10px !important;
+}
+
+.banner-three-list ul li span img {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(28%) saturate(1200%) hue-rotate(345deg) brightness(102%) contrast(98%);
+}
+
+/* Hero Center Punchline & CTA */
+.banner-three-center-title {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.banner-three-button a {
+  background: var(--color-gold) !important;
+  color: #181514 !important;
+  border: 1px solid var(--color-gold) !important;
+  border-radius: 9999px !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 800 !important;
+  padding: 14px 34px !important;
+  box-shadow: var(--glow-accent) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.banner-three-button a:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 0 45px rgba(242, 196, 106, 0.65) !important;
+  background: var(--color-cream) !important;
+  color: #181514 !important;
+}
+
+/* Hero Right Counter Items */
+.banner-three-right {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.banner-three-counter-item {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+  padding: 22px 26px !important;
+  transition: all 0.3s ease !important;
+}
+
+.banner-three-counter-item:hover {
+  border-color: var(--color-gold) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), var(--glow-accent) !important;
+}
+
+.banner-three-counter-title {
+  color: var(--color-gold) !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 800 !important;
+  text-shadow: var(--glow-accent) !important;
+}
+
+.banner-three-counter-paragraph {
+  color: var(--text-dim) !important;
+  font-size: 0.92rem !important;
+}
+
+/* 4. Projects Showcase Section */
+.portfolio-three-area {
+  background: radial-gradient(circle at 20% 35%, rgba(242, 196, 106, 0.08) 0%, rgba(0, 0, 0, 0) 50%),
+              radial-gradient(circle at 80% 70%, rgba(174, 172, 120, 0.1) 0%, rgba(0, 0, 0, 0) 50%),
+              var(--color-black) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-three-shape-title {
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08) !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.portfolio-three-item {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65) !important;
+  padding: 32px !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.portfolio-three-item:hover {
+  border-color: var(--color-neon-red) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), var(--glow-accent) !important;
+  transform: translateY(-5px) !important;
+}
+
+.portfolio-three-item h2 a {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 700 !important;
+  transition: color 0.25s ease;
+}
+
+.portfolio-three-item h2 a:hover {
+  color: var(--color-neon-red) !important;
+}
+
+.portfolio-three-list ul li span {
+  background: rgba(131, 0, 0, 0.2) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: #f1f5f9 !important;
+  border-radius: 9999px !important;
+  padding: 4px 14px !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-three-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
+}
+
+.portfolio-three-btn:hover {
+  background: var(--color-neon-red) !important;
+  border-color: var(--color-neon-red) !important;
+  color: #ffffff !important;
+  box-shadow: var(--glow-accent) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+}
+
+.portfolio-three-counter .tw-btn-circle {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: #ffffff !important;
+}
+
+.portfolio-three-counter .tw-btn-circle:hover {
+  border-color: var(--color-neon-red) !important;
+  box-shadow: var(--glow-crimson) !important;
+}
+
+/* 5. Tech Stack Section */
+.brand-three-area {
+  background: var(--color-black) !important;
+  position: relative;
+}
+
+.brand-three-title {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+  font-weight: 800 !important;
+  border-radius: 9999px !important;
+  padding: 10px 32px !important;
+}
+
+.brand-three-area .text-muted {
+  color: var(--text-dim) !important;
+}
+
+.brand-item.brand-three-item {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.brand-item.brand-three-item:hover {
+  border-color: var(--color-neon-red) !important;
+  background: var(--bg-card-hover) !important;
+  transform: translateY(-4px) scale(1.03) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), var(--glow-crimson) !important;
+}
+
+.brand-item.brand-three-item span {
+  color: #f1f5f9 !important;
+  font-family: "Phudu", sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* 6. Journey / Experience Section */
+.feature-three-area {
+  background: var(--color-black) !important;
+}
+
+.feature-three-area h2,
+.feature-three-area h3 {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+}
+
+.feature-three-single {
+  border-top-color: rgba(188, 2, 2, 0.2) !important;
+}
+
+.feature-three-title {
+  color: #ffffff !important;
+  font-family: "Phudu", sans-serif !important;
+}
+
+.feature-three-paragraph {
+  color: var(--text-dim) !important;
+}
+
+/* 7. Scroll To Top Button */
+.back-to-top-btn {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--color-neon-red) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.3s ease !important;
+}
+
+.back-to-top-btn:hover {
+  background: var(--color-neon-red) !important;
+  color: #ffffff !important;
+  border-color: var(--color-neon-red) !important;
+  box-shadow: var(--glow-accent) !important;
+}
+
+/* 8. 3D Card Holographic Glare & Tilt */
+.holographic-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.22), transparent 60%);
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+

@@ -3,3 +3,4 @@ node_modules/
 *.log
 _unused_assets_backup/
 img-*/
+scratch/
