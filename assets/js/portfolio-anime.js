@@ -29,7 +29,7 @@
     "soul-smile": {
       title: "Soul Smile — Dental Clinic & Healthcare ERP",
       category: "Full-Stack ERP • Glassmorphic UI • Medical Billing & AMO",
-      github: "https://github.com/Ilyass123-Ng",
+      github: "https://github.com/Ilyass123-Ng/Multi-Tenant-Cliniques",
       screens: [
         {
           src: "assets/images/projects/soul-smile/shot-1.webp",
@@ -890,17 +890,48 @@
   }
 
   // =========================================================================
-  // Aceternity UI Dynamic Mouse Spotlight for Contact Card & Inputs
+  // Tangier, Morocco (Africa/Casablanca) Real-Time Live Clock
+  // =========================================================================
+  function initTangierLiveClock() {
+    const clockEl = document.getElementById("tangier-live-clock");
+    if (!clockEl) return;
+
+    function updateClock() {
+      try {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString("fr-FR", {
+          timeZone: "Africa/Casablanca",
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        clockEl.textContent = timeStr;
+      } catch (err) {
+        const now = new Date();
+        const pad = (n) => String(n).padStart(2, '0');
+        // Tangier UTC+1 standard
+        const utcHours = now.getUTCHours() + 1;
+        clockEl.textContent = `${pad(utcHours % 24)}:${pad(now.getUTCMinutes())}:${pad(now.getUTCSeconds())}`;
+      }
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  // =========================================================================
+  // Aceternity UI Dynamic Mouse Spotlight for Bento & Contact Cards
   // =========================================================================
   function initAceternitySpotlight() {
-    const card = document.querySelector('.contact-studio-card');
-    if (card) {
+    const cards = document.querySelectorAll('.contact-studio-card, .bento-card, .about-master-card, .about-story-card, .about-cred-card');
+    cards.forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--card-mouse-x', `${e.clientX - rect.left}px`);
         card.style.setProperty('--card-mouse-y', `${e.clientY - rect.top}px`);
       });
-    }
+    });
 
     const fields = document.querySelectorAll('.contact-studio-field');
     fields.forEach(field => {
@@ -1009,10 +1040,12 @@
     document.addEventListener('DOMContentLoaded', () => {
       initAceternitySpotlight();
       initContactParticles();
+      initTangierLiveClock();
     });
   } else {
     initAceternitySpotlight();
     initContactParticles();
+    initTangierLiveClock();
   }
 
   window.IlyasPortfolio = {
